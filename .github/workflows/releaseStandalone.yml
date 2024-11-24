@@ -3,7 +3,7 @@ name: Build and Release Standalone
 on:
   push:
     tags:
-      - '*.*.*'
+      - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -24,29 +24,34 @@ jobs:
     - name: Create zip file
       run: |
         powershell Compress-Archive -Path bin/standalone/* -DestinationPath bin/standalone/standalone.zip
+    
+    - name: Install WiX Toolset
+      run: dotnet tool install --global wix
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - name: Create MSI installer
+      run: |
+        wix build -o bin/msi/installer.wixobj workflows/installer.wxs
+        wix link -o bin/msi/FeshInstaller.msi bin/msi/installer.wixobj     
+
+    - name: Get Changelog Entry
+      id: changelog_reader
+      uses: mindsers/changelog-reader-action@v1.1.0
       with:
-        tag_name: ${{ github.ref_name}}
-        release_name: Fesh ${{ github.ref_name }}
-        draft: false
-        prerelease: false
+        version: ${{ github.ref }}
+        path: ./CHANGELOG.md
+
+
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: bin/standalone/standalone.zip,bin/msi/FeshInstaller.msi
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-            Don't forget to **unblock** the zip file before extracting.  
-            Changes:          
-            [View Changelog](https://github.com/goswinr/Fesh/blob/main/CHANGELOG.md)
-            
+          To use the Fesh.exe in zip file you need to **unblock** the zip file before extracting.
+          Alternatively you can use the Fesh.msi installer. No admin rights required.
 
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: bin/standalone/standalone.zip
-        asset_name: standalone.zip
-        asset_content_type: application/zip
+          ## Changelog
+          ${{ steps.changelog_reader.outputs.log_entry }}
+          
+          [Full Changelog](https://github.com/goswinr/Fesh/blob/main/CHANGELOG.md)
+          

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="FeshInstaller" Language="1033" Version="1.0.0.0" Manufacturer="YourCompany" UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" />
+
+    <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLFOLDER" Name="Fesh" />
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="MainExecutable" Guid="3b76403b-7097-444f-b546-c20a9a7be3ef">
+        <File Id="FeshExe" Source="bin/standalone/Fesh.exe" KeyPath="yes" />
+        <!-- Add other files from bin/standalone directory -->
+        <Directory Id="StandaloneFiles" Name="StandaloneFiles">
+          <Component Id="StandaloneFilesComponent" Guid="3b76403b-7097-444f-b546-c20a9a7be3ef">
+            <File Id="StandaloneFiles" Source="bin/standalone/*" />
+          </Component>
+        </Directory>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="MainFeature" Title="FeshStandalone" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="StandaloneFilesComponent" />
+    </Feature>
+  </Product>
+</Wix>
