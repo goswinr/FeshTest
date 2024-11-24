@@ -30,7 +30,7 @@ jobs:
 
     - name: Create MSI installer
       run: |
-        wix build -o bin/msi/installer.wixobj workflows/installer.wxs
+        wix build -o bin/msi/installer.wixobj .github/workflows/installer.wxs
         wix link -o bin/msi/FeshInstaller.msi bin/msi/installer.wixobj     
 
     - name: Get Changelog Entry
