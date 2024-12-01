@@ -103,7 +103,7 @@ dotnet publish FeshStandalone.fsproj -c release -r win-x64 -o bin/publish/net472
 the use [Velopack](https://docs.velopack.io/packaging/installer) to create an installer:
 
 ```bash
-vpk pack --packId FeshTest --packVersion 0.15.1 --packDir bin/publish/net9 --outputDir bin/installer/net9 --mainExe FeshTest.exe --framework net9.0-x64-desktop --icon Media/logoGray.ico
+vpk pack --packId FeshTest --packVersion 0.15.1 --packDir bin/publish/net9 --outputDir bin/installer/net9 --mainExe FeshTest.exe --framework net9.0-x64-desktop --icon Media/logo.ico
 ```
 
 https://docs.velopack.io/packaging/deltas#disabling-deltas
