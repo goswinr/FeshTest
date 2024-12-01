@@ -26,8 +26,8 @@ jobs:
       run: |
         dotnet tool install -g vpk
         vpk download github --repoUrl https://github.com/goswinr/FeshTest
-        vpk pack --packId Fesh --packVersion ${{github.ref_name}} --packDir bin/publish/net9 --outputDir bin/installer/net9 --mainExe Fesh.exe --framework net9.0-x64-desktop --icon Media/logoGray.ico        
-        vpk upload github --repoUrl https://github.com/goswinr/FeshTest --outputDir bin/installer/net9 --publish --releaseName "Fesh ${{github.ref_name}}" --tag ${{github.ref_name}}
+        vpk pack --packId FeshTest --packVersion ${{github.ref_name}} --packDir bin/publish/net9 --outputDir bin/installer/net9 --mainExe FeshTest.exe --framework net9.0-x64-desktop --icon Media/logoGray.ico        
+        vpk upload github --repoUrl https://github.com/goswinr/FeshTest --outputDir bin/installer/net9 --publish --releaseName "Fesh ${{github.ref_name}}" --tag ${{github.ref_name}} --token ${{secrets.GITHUB_TOKEN}}
 
 
 

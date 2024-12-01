@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.15.1] - 2024-11-22
+## [0.15.2] - 2024-11-22
 ### Added
 - Use Velopack to create an installer
 
@@ -56,8 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - first public release
 
-[Unreleased]: https://github.com/goswinr/Fesh/compare/0.15.1...HEAD
-[0.15.1]: https://github.com/goswinr/Fesh/compare/0.15.0...0.15.1
+[Unreleased]: https://github.com/goswinr/Fesh/compare/0.15.2...HEAD
+[0.15.1]: https://github.com/goswinr/Fesh/compare/0.15.0...0.15.2
 [0.15.0]: https://github.com/goswinr/Fesh/compare/0.14.3...0.15.0
 [0.14.3]: https://github.com/goswinr/Fesh/compare/0.14.2...0.14.3
 [0.14.2]: https://github.com/goswinr/Fesh/compare/0.14.0...0.14.2

@@ -23,10 +23,10 @@
     <FSharpCoreIncludeDocFileInOutput>true</FSharpCoreIncludeDocFileInOutput> <!-- doesn't seem to work -->
 
     <RootNamespace>Fesh</RootNamespace>
-    <AssemblyName>Fesh</AssemblyName>
-    <AssemblyTitle>Fesh</AssemblyTitle>
-    <Title>Fesh</Title>
-    <Product>Fesh</Product>
+    <AssemblyName>FeshTest</AssemblyName>
+    <AssemblyTitle>FeshTest</AssemblyTitle>
+    <Title>FeshTest</Title>
+    <Product>FeshTest</Product>
 
     <!-- <Version>0.14.2</Version> done by Ionide.KeepAChangelog.Tasks
     <AssemblyVersion>0.14.2</AssemblyVersion>
