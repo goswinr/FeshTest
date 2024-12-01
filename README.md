@@ -51,6 +51,13 @@ Or, to build the Fesh nuget package run:
 ```bash
 dotnet build FeshHosting.fsproj
 ```
+or self contained:
+
+```bash
+dotnet publish FeshStandalone.fsproj -c release --self-contained -r win-x64 -o bin/publish/net9 --framework net9.0-windows
+dotnet publish FeshStandalone.fsproj -c release -r win-x64 -o bin/publish/net9 --framework net9.0-windows
+dotnet publish FeshStandalone.fsproj -c release -r win-x64 -o bin/publish/net472 --framework net472
+```
 
 ## Features
 
