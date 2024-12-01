@@ -21,6 +21,13 @@ jobs:
     - name: Build
       run: dotnet test FeshStandalone.fsproj --configuration Release
 
+    - name: Get Changelog Entry
+      id: changelog_reader
+      uses: mindsers/changelog-reader-action@v2.2.3
+      with:
+        version: ${{ github.ref }}
+        path: ./CHANGELOG.md
+
     - name: Create zip file
       run: |
         powershell Compress-Archive -Path bin/standalone/* -DestinationPath bin/standalone/standalone.zip
@@ -36,11 +43,11 @@ jobs:
         draft: false
         prerelease: false
         body: |
-            Don't forget to **unblock** the zip file before extracting.  
-            Changes:          
-            [View Changelog](https://github.com/goswinr/Fesh/blob/main/CHANGELOG.md)
-            
+          To use the Fesh.exe in zip file you need to **unblock** the zip file before extracting.
+          Alternatively you can use the Fesh.msi installer. No admin rights required.
 
+          ## Changelog
+          ${{ steps.changelog_reader.outputs.log_entry }}
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
       env:
