@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
+
 ## [0.15.0] - 2024-11-22
 ### Added
 - Support for F# 9.0
@@ -51,7 +52,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - first public release
 
-[Unreleased]: https://github.com/goswinr/Fesh/compare/0.14.3...HEAD
+[Unreleased]: https://github.com/goswinr/Fesh/compare/0.15.0...HEAD
+[0.15.0]: https://github.com/goswinr/Fesh/compare/0.14.3...0.15.0
 [0.14.3]: https://github.com/goswinr/Fesh/compare/0.14.2...0.14.3
 [0.14.2]: https://github.com/goswinr/Fesh/compare/0.14.0...0.14.2
 [0.14.0]: https://github.com/goswinr/Fesh/compare/0.13.0...0.14.0
