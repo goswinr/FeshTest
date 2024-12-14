@@ -5,7 +5,7 @@
     <OutputType>Library</OutputType>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms><!--inherited from Avalonedit ?-->
-    <TargetFrameworks>net472;net7.0-windows</TargetFrameworks>
+    <TargetFrameworks>net472;net7.0-windows</TargetFrameworks><!--net7 for Rhino3D-->
     <DefineConstants Condition="'$(TargetFramework)' == 'net472'">NETFRAMEWORK</DefineConstants>
     <!-- <RuntimeIdentifier>win-x64</RuntimeIdentifier> -->
     <Configurations>Release</Configurations>

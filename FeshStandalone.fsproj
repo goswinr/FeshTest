@@ -7,8 +7,8 @@
     <OutputType>WinExe</OutputType>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>    <!--inherited from Avalonedit ?-->
-	  <TargetFrameworks>net472;net9.0-windows</TargetFrameworks>
-    <DefineConstants Condition="'$(TargetFramework)' == 'net472'">NETFRAMEWORK</DefineConstants>
+	  <TargetFrameworks>net48;net9.0-windows</TargetFrameworks>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net48'">NETFRAMEWORK</DefineConstants>
     <!-- <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers> -->
     <!-- <RuntimeIdentifier>win-x64</RuntimeIdentifier> -->
 
@@ -23,10 +23,10 @@
     <FSharpCoreIncludeDocFileInOutput>true</FSharpCoreIncludeDocFileInOutput> <!-- doesn't seem to work -->
 
     <RootNamespace>Fesh</RootNamespace>
-    <AssemblyName>Fesh</AssemblyName>
-    <AssemblyTitle>Fesh</AssemblyTitle>
-    <Title>Fesh</Title>
-    <Product>Fesh</Product>
+    <AssemblyName>FeshTest</AssemblyName>
+    <AssemblyTitle>FeshTest</AssemblyTitle>
+    <Title>FeshTest</Title>
+    <Product>FeshTest</Product>
 
     <!-- <Version>0.14.2</Version> taken from CHANGELOG.md by Ionide.KeepAChangelog.Tasks -->
 
@@ -44,6 +44,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Velopack" Version="0.0.942" />
     <PackageReference Include="Ionide.KeepAChangelog.Tasks" Version="0.1.8" PrivateAssets="all"  />
     <PackageReference Include="System.Net.Http" Version="4.3.4" /> <!-- to check for updates -->
     <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" /> <!-- to move files to the recycle bin instead of deleting them -->
